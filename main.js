@@ -20,11 +20,6 @@ const songs = [
     src: "./media/musica/Nirvana - Smells Like Teen Spirit.mp4",
   },
   {
-    title: "Wonderwall",
-    artist: "Oasis",
-    src: "./media/musica/Oasis - Wonderwall.mp4",
-  },
-  {
     title: "Wannabe",
     artist: "Spice Girls",
     src: "./media/musica/Spice Girls - Wannabe.mp4",
