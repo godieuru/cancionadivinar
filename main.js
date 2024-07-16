@@ -46,7 +46,11 @@ function adivinarcancion() {
       audio.currentTime = 0;
     }
     audio = null;
-    cancion = songs[Math.floor(Math.random() * songs.length)];
+
+    const index = Math.floor(Math.random() * songs.length);
+    cancion = songs[index];
+    songs.splice(index, 1);
+
     alert(`Artista: ${cancion.artist}`);
     reproducir();
   }
@@ -67,7 +71,7 @@ function adivinarcancion() {
 
   function preguntatitulo() {
     const title = prompt("¿Cuál es el nombre de la canción?");
-    if (title.toLowerCase() === cancion.title.toLowerCase()) {
+    if (title && title.toLowerCase() === cancion.title.toLowerCase()) {
       alert("¡Muy bien!");
       if (confirm("¿Te gustaría jugar de nuevo?")) {
         comenzar();
@@ -86,8 +90,14 @@ function adivinarcancion() {
     }
   }
 
+
+  songs.push(...songsBackup);
+
   comenzar();
 }
+
+
+const songsBackup = songs.slice();
 
 window.onload = function () {
   const comenzarBtn = document.getElementById("bcomenzar");
